@@ -32,6 +32,11 @@ initializeDb( db => {
 	// api router
 	app.use('/api', api({ config, db }));
 
+  // route: http://localhost:8079/api/catalog
+  app.get('/api/catalog', function (req, res) {
+    res.send('Hello world');
+  })
+
 	app.server.listen(process.env.PORT || config.server.port, () => {
 		console.log(`Started on port ${app.server.address().port}`);
 	});
