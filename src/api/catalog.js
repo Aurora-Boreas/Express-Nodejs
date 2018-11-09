@@ -3,6 +3,10 @@ import ProcessorFactory from '../processor/factory';
 
 export default ({config, db}) => function (req, res, body) {
 
+  if (!(req.method == 'GET' || req.method == 'POST' )) {
+    res.status(404).send({ 'Method is not supported.' });
+  }
+
   let indexName = ''
   let entityType = ''
 
